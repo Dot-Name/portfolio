@@ -44,6 +44,15 @@ const projects = [
     link: "https://skillpeaks.online/",
     label: "Learning",
   },
+  {
+  imgSrc: "https://res.cloudinary.com/dr0cgvrva/image/upload/v1795066954/Screenshot_From_2026-11-19_11-12-09_ya6wny.png",
+  videoSrc: "https://res.cloudinary.com/dr0cgvrva/video/upload/v1795068101/Screencast_From_2026-11-19_11-30-41_qwd8nf.mp4",
+  logoSrc: "https://dark-myth.vercel.app/assets/logo-DHhBwpCW.png",
+  name: "Dark Myth",
+  description: "A dark-themed ecommerce storefront crafted for horror art and collectibles.",
+  link: "https://dark-myth.vercel.app/",
+  label: "Horror Ecommerce",
+},
 ];
 
 export default projects;
