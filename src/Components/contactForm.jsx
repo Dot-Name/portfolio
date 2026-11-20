@@ -36,32 +36,20 @@ const ContactForm = () => {
     setFormData(emptyForm);
   };
 
-  const inputClass = (field) =>
-    `w-full border bg-[#0d1218] px-4 py-3 text-white placeholder:text-slate-600 transition focus:border-cyan-200 focus:outline-none focus:ring-2 focus:ring-cyan-200/30 ${
-      errors[field] ? "border-rose-400" : "border-white/15"
-    }`;
-
   return (
     <form
-      className="border border-white/10 bg-[#10151b] p-5 sm:p-8"
+      className="contact-form"
       onSubmit={handleSubmit}
       noValidate
     >
-      <div className="mb-7">
-        <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">
-          Send a message
-        </p>
-        <h3 className="mt-2 font-display text-2xl text-white sm:text-3xl">
-          Let's start a conversation.
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-400">
-          Submitting opens WhatsApp with your message ready to send.
-        </p>
+      <div className="form-heading">
+        <h3>Send a message</h3>
+        <p>Opens WhatsApp with your message ready to send.</p>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="contact-name" className="text-sm text-slate-200">
+          <label htmlFor="contact-name" className="eyebrow">
             Name
           </label>
           <input
@@ -73,18 +61,17 @@ const ContactForm = () => {
             onChange={handleChange}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "contact-name-error" : undefined}
-            className={inputClass("name")}
             placeholder="Your name"
           />
           {errors.name && (
-            <p id="contact-name-error" className="text-sm text-rose-300">
+            <p id="contact-name-error" className="form-error">
               {errors.name}
             </p>
           )}
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="contact-email" className="text-sm text-slate-200">
+          <label htmlFor="contact-email" className="eyebrow">
             Email
           </label>
           <input
@@ -96,11 +83,10 @@ const ContactForm = () => {
             onChange={handleChange}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "contact-email-error" : undefined}
-            className={inputClass("email")}
             placeholder="you@example.com"
           />
           {errors.email && (
-            <p id="contact-email-error" className="text-sm text-rose-300">
+            <p id="contact-email-error" className="form-error">
               {errors.email}
             </p>
           )}
@@ -108,7 +94,7 @@ const ContactForm = () => {
       </div>
 
       <div className="mt-5 flex flex-col gap-2">
-        <label htmlFor="contact-message" className="text-sm text-slate-200">
+        <label htmlFor="contact-message" className="eyebrow">
           What would you like to build?
         </label>
         <textarea
@@ -119,11 +105,11 @@ const ContactForm = () => {
           onChange={handleChange}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
-          className={`${inputClass("message")} resize-y`}
+          className="resize-y"
           placeholder="Tell me a little about your idea or opportunity."
         />
         {errors.message && (
-          <p id="contact-message-error" className="text-sm text-rose-300">
+          <p id="contact-message-error" className="form-error">
             {errors.message}
           </p>
         )}
@@ -131,7 +117,7 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 focus-visible:ring-offset-4 focus-visible:ring-offset-[#10151b] sm:w-auto sm:text-base"
+        className="solid-button form-submit"
       >
         Continue to WhatsApp
       </button>

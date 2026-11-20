@@ -6,23 +6,26 @@ import ExperienceEducation from "./Components/ExperienceEducation.jsx";
 import Footer from "./Components/footer.jsx";
 import HeroSection from "./Components/heroSection.jsx";
 import Navbar from "./Components/navBar.jsx";
+import PointerEffects from "./Components/PointerEffects.jsx";
 import Projects from "./Components/RecentProject.jsx";
 import Skills from "./Components/skills.jsx";
 
-function App() {
+export default function App() {
   return (
-    <main className="min-h-screen w-full overflow-x-clip bg-[#080b10] text-slate-100">
+    <>
+      <a href="#home" className="skip-link">Skip to content</a>
       <Navbar />
-      <HeroSection />
-      <Projects />
-      <AboutMe />
-      <Skills />
-      <ExperienceEducation />
-      <DrivesMe />
-      <ContactMe />
+      <main>
+        <HeroSection />
+        <Projects />
+        <AboutMe />
+        <Skills />
+        <ExperienceEducation />
+        <DrivesMe />
+        <ContactMe />
+      </main>
       <Footer />
-    </main>
+      <PointerEffects />
+    </>
   );
 }
-
-export default App;

@@ -1,48 +1,24 @@
+import { FaKey, FaLock, FaNetworkWired, FaShieldAlt } from "react-icons/fa";
 import {
-  FaCreditCard,
-  FaDatabase,
-  FaKey,
-  FaLock,
-  FaNetworkWired,
-  FaServer,
-  FaShieldAlt,
-} from "react-icons/fa";
+  SiCloudinary, SiExpress, SiMongodb, SiMongoose, SiMysql, SiNodedotjs, SiRazorpay, SiSequelize,
+} from "react-icons/si";
 import SkillBadge from "./SkillBadge.jsx";
 
 const skillGroups = [
   {
-    number: "02",
-    title: "Backend & data",
+    title: "Backend",
+    skills: [{ label: "Node.js", Icon: SiNodedotjs }, { label: "Express", Icon: SiExpress }],
+  },
+  {
+    title: "Databases",
     skills: [
-      {
-        label: "Node.js",
-        iconUrl: "https://cdn.simpleicons.org/nodedotjs/5FA04E",
-        Icon: FaServer,
-      },
-      {
-        label: "Express",
-        iconUrl: "https://cdn.simpleicons.org/express/FFFFFF",
-        Icon: FaServer,
-      },
-      {
-        label: "MongoDB",
-        iconUrl: "https://cdn.simpleicons.org/mongodb/47A248",
-        Icon: FaDatabase,
-      },
-      {
-        label: "Mongoose",
-        iconUrl: "https://cdn.simpleicons.org/mongoose/880000",
-        Icon: FaDatabase,
-      },
-      {
-        label: "Sequelize",
-        iconUrl: "https://cdn.simpleicons.org/sequelize/52B0E7",
-        Icon: FaDatabase,
-      },
+      { label: "MongoDB", Icon: SiMongodb },
+      { label: "Mongoose", Icon: SiMongoose },
+      { label: "MySQL", Icon: SiMysql },
+      { label: "Sequelize", Icon: SiSequelize },
     ],
   },
   {
-    number: "03",
     title: "APIs & authentication",
     skills: [
       { label: "REST APIs", Icon: FaNetworkWired },
@@ -52,51 +28,18 @@ const skillGroups = [
     ],
   },
   {
-    number: "04",
     title: "Integrations",
-    skills: [
-      {
-        label: "Payments",
-        iconUrl: "https://cdn.simpleicons.org/razorpay/0C2451",
-        Icon: FaCreditCard,
-      },
-      {
-        label: "Cloudinary",
-        iconUrl: "https://cdn.simpleicons.org/cloudinary/3448C5",
-        Icon: FaServer,
-      },
-    ],
+    skills: [{ label: "Payments", Icon: SiRazorpay }, { label: "Cloudinary", Icon: SiCloudinary }],
   },
 ];
 
-const Backend = () => (
-  <>
-    {skillGroups.map((group) => (
-      <article
-        key={group.number}
-        className="border-t border-white/15 py-7 sm:py-9"
-      >
-        <div className="grid gap-5 sm:grid-cols-[0.7fr_1.3fr] sm:gap-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">
-              {group.number}
-            </p>
-            <h3 className="mt-2 font-display text-2xl text-white sm:text-3xl">
-              {group.title}
-            </h3>
-          </div>
-          <ul
-            aria-label={group.title}
-            className="grid grid-cols-4 gap-1.5 sm:grid-cols-2 sm:gap-2.5"
-          >
-            {group.skills.map((skill) => (
-              <SkillBadge key={skill.label} {...skill} />
-            ))}
-          </ul>
-        </div>
-      </article>
-    ))}
-  </>
-);
-
-export default Backend;
+export default function Backend() {
+  return skillGroups.map(({ title, skills }) => (
+    <details key={title} className="skill-group" name="skill-categories">
+      <summary>{title}</summary>
+      <ul aria-label={title}>
+        {skills.map((skill) => <SkillBadge key={skill.label} {...skill} />)}
+      </ul>
+    </details>
+  ));
+}
